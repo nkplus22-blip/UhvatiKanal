@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UhvatiKanal</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Jezički gumbi */
+    .lang-switch {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+    .lang-switch button {
+      background: #fff;
+      color: #c00;
+      border: 2px solid #c00;
+      border-radius: 6px;
+      margin-left: 5px;
+      padding: 4px 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    .lang-switch button:hover {
+      background: #c00;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="tech-bg"></canvas>
+
+<header>
+  <h1 id="site-title">UhvatiKanal</h1>
+  <p id="site-subtitle">Vaša porodica, vaša televizija – najbolji IPTV servis</p>
+  <button class="menu-toggle" onclick="openNav()">☰</button>
+
+  <!-- Jezički odabir -->
+  <div class="lang-switch">
+    <button onclick="setLanguage('hr')">HR</button>
+    <button onclick="setLanguage('de')">DE</button>
+  </div>
+</header>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Početna</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Cijene i akcije</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Top 30</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Komentari</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Postani dio tima</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">O nama</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Kontakt</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Plaćanje</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Kako da gledaš</a>
+  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Aplikacije</a>
+</div>
+
+<section class="hero">
+  <h1 id="hero-title">Dobrodošli u UhvatiKanal</h1>
+  <p id="hero-text">Već 9 godina pružamo vrhunsku IPTV uslugu bez prekida i trzanja – za Vas i Vašu porodicu.</p>
+</section>
+
+<section class="counters">
+  <div class="counter-box"><h2 class="counter" data-target="16000">0</h2><p id="counter1">Zadovoljnih korisnika</p></div>
+  <div class="counter-box"><h2 class="counter" data-target="9">0</h2><p id="counter2">Godina sa vama</p></div>
+  <div class="counter-box"><h2 class="counter" data-target="2100">0</h2><p id="counter3">Live kanala</p></div>
+  <div class="counter-box"><h2 class="counter" data-target="75000">0</h2><p id="counter4">Videoteka</p></div>
+</section>
+
+<section class="content">
+  <h2 id="why-title">Zašto odabrati UhvatiKanal?</h2>
+  <p id="why-text">Naš IPTV servis nudi savršen spoj kvaliteta, stabilnosti i povoljne cijene. Bez ikakvih prekida i nepotrebnog opterećenja, uz servere i streamove najvišeg kvaliteta. Vaše zadovoljstvo nam je uvijek na prvom mjestu!</p>
+</section>
+
+<section class="content">
+  <h2 id="iptv-title">Šta je Internet televizija (IPTV)?</h2>
+  <ul id="iptv-list">
+    <li>Više hiljada TV kanala iz cijelog svijeta</li>
+    <li>Velika videoteka sa filmovima i serijama na zahtjev</li>
+    <li>Gledanje na Smart TV-u, mobitelu, tabletu, računaru ili TV box uređajima</li>
+    <li>Bez dodatnih antena, kablova ili komplikovanih instalacija</li>
+    <li>Povoljnija cijena u poređenju sa klasičnim operaterima</li>
+  </ul>
+</section>
+
+<footer>
+  <p id="footer-text">&copy; 2025 UhvatiKanal | Kontakt: 
+    <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">WhatsApp</a>
+  </p>
+</footer>
+
+<script>
+function openNav(){ document.getElementById("myNav").style.width="100%"; }
+function closeNav(){ document.getElementById("myNav").style.width="0%"; }
+
+// Brojači
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+  counter.innerText='0';
+  const updateCounter=()=>{
+    const target=+counter.getAttribute('data-target');
+    const current=+counter.innerText.replace(/\D/g,'');
+    const increment=target/200;
+    if(current<target){
+      counter.innerText=Math.ceil(current+increment).toLocaleString();
+      setTimeout(updateCounter,20);
+    } else {
+      counter.innerText=target>=1000?target.toLocaleString()+"+":target+"+";
+    }
+  };
+  updateCounter();
+});
+
+// Canvas animacija
+const canvas=document.getElementById('tech-bg');
+const ctx=canvas.getContext('2d');
+let width=canvas.width=window.innerWidth;
+let height=canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{ width=canvas.width=window.innerWidth; height=canvas.height=window.innerHeight; });
+
+const particleCount=80;
+const particles=[];
+class Particle{ constructor(){ this.x=Math.random()*width; this.y=Math.random()*height; this.size=Math.random()*2+1; this.speedX=Math.random()*1-0.5; this.speedY=Math.random()*1-0.5; } update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x>width)this.x=0; if(this.x<0)this.x=width; if(this.y>height)this.y=0; if(this.y<0)this.y=height; } draw(){ ctx.fillStyle='rgba(255,0,0,0.7)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); } }
+for(let i=0;i<particleCount;i++)particles.push(new Particle());
+function animate(){ ctx.clearRect(0,0,width,height); particles.forEach(p=>{p.update();p.draw();}); for(let i=0;i<particles.length;i++){for(let j=i+1;j<particles.length;j++){ let dx=particles[i].x-particles[j].x; let dy=particles[i].y-particles[j].y; let dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){ ctx.strokeStyle='rgba(255,0,0,0.1)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke(); }}} requestAnimationFrame(animate);}
+animate();
+
+// Prijevodi
+const translations = {
+  hr: {
+    siteSubtitle: "Vaša porodica, vaša televizija – najbolji IPTV servis",
+    heroTitle: "Dobrodošli u UhvatiKanal",
+    heroText: "Već 9 godina pružamo vrhunsku IPTV uslugu bez prekida i trzanja – za Vas i Vašu porodicu.",
+    whyTitle: "Zašto odabrati UhvatiKanal?",
+    whyText: "Naš IPTV servis nudi savršen spoj kvaliteta, stabilnosti i povoljne cijene. Bez ikakvih prekida i nepotrebnog opterećenja, uz servere i streamove najvišeg kvaliteta. Vaše zadovoljstvo nam je uvijek na prvom mjestu!",
+    iptvTitle: "Šta je Internet televizija (IPTV)?",
+    iptvList: [
+      "Više hiljada TV kanala iz cijelog svijeta",
+      "Velika videoteka sa filmovima i serijama na zahtjev",
+      "Gledanje na Smart TV-u, mobitelu, tabletu, računaru ili TV box uređajima",
+      "Bez dodatnih antena, kablova ili komplikovanih instalacija",
+      "Povoljnija cijena u poređenju sa klasičnim operaterima"
+    ],
+    counters: ["Zadovoljnih korisnika","Godina sa vama","Live kanala","Videoteka"],
+    footer: "&copy; 2025 UhvatiKanal | Kontakt: <a href='https://wa.me/491788231430'>WhatsApp</a>"
+  },
+  de: {
+    siteSubtitle: "Ihre Familie, Ihr Fernsehen – der beste IPTV-Dienst",
+    heroTitle: "Willkommen bei UhvatiKanal",
+    heroText: "Seit 9 Jahren bieten wir erstklassigen IPTV-Service ohne Unterbrechungen – für Sie und Ihre Familie.",
+    whyTitle: "Warum UhvatiKanal wählen?",
+    whyText: "Unser IPTV-Service bietet die perfekte Kombination aus Qualität, Stabilität und günstigem Preis. Ohne Unterbrechungen, mit den besten Servern und Streams. Ihre Zufriedenheit steht für uns an erster Stelle!",
+    iptvTitle: "Was ist Internetfernsehen (IPTV)?",
+    iptvList: [
+      "Tausende TV-Kanäle aus der ganzen Welt",
+      "Große Videothek mit Filmen und Serien auf Abruf",
+      "Sehen auf Smart-TV, Handy, Tablet, PC oder TV-Box",
+      "Keine zusätzlichen Antennen, Kabel oder komplizierte Installationen",
+      "Günstiger als klassische Anbieter"
+    ],
+    counters: ["Zufriedene Nutzer","Jahre mit Ihnen","Live-Kanäle","Videothek"],
+    footer: "&copy; 2025 UhvatiKanal | Kontakt: <a href='https://wa.me/491788231430'>WhatsApp</a>"
+  }
+};
+
+function setLanguage(lang) {
+  document.getElementById("site-subtitle").textContent = translations[lang].siteSubtitle;
+  document.getElementById("hero-title").textContent = translations[lang].heroTitle;
+  document.getElementById("hero-text").textContent = translations[lang].heroText;
+  document.getElementById("why-title").textContent = translations[lang].whyTitle;
+  document.getElementById("why-text").textContent = translations[lang].whyText;
+  document.getElementById("iptv-title").textContent = translations[lang].iptvTitle;
+  const iptvList=document.getElementById("iptv-list"); iptvList.innerHTML="";
+  translations[lang].iptvList.forEach(item=>{ let li=document.createElement("li"); li.textContent=item; iptvList.appendChild(li); });
+  document.getElementById("counter1").textContent=translations[lang].counters[0];
+  document.getElementById("counter2").textContent=translations[lang].counters[1];
+  document.getElementById("counter3").textContent=translations[lang].counters[2];
+  document.getElementById("counter4").textContent=translations[lang].counters[3];
+  document.getElementById("footer-text").innerHTML=translations[lang].footer;
+}
+</script>
+
+</body>
+</html>
