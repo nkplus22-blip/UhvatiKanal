@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Komentari - UhvatiKanal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #c00;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      margin: 0;
+    }
+
+    /* Hamburger meni */
+    .menu-toggle {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #fff;
+      background: none;
+      border: none;
+    }
+    nav {
+      display: none;
+      flex-direction: column;
+      background: #a00;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-bottom: 1px solid #800;
+    }
+    nav a:hover {
+      background: #fff;
+      color: #c00;
+    }
+    .show-menu {
+      display: flex;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .comment {
+      background: #fff;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .comment strong {
+      color: #c00;
+    }
+    footer {
+      background: #c00;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <h1>Komentari naših korisnika</h1>
+  </header>
+
+  <nav id="mainMenu">
+    <a href="index.html">🏠 Početna</a>
+    <a href="cjenovnik.html">💰 Cijene i akcije</a>
+    <a href="komentari.html">💬 Komentari</a>
+    <a href="onama.html">ℹ️ O nama</a>
+    <a href="tim.html">👥 Postani dio tima</a>
+    <a href="top30.html">🎬 Top 30</a>
+    <a href="kontakt.html">📞 Kontakt</a>
+    <a href="placanje.html">💳 Plaćanje</a>
+    <a href="kako-da-gledas.html">📺 Kako da gledaš</a>
+  </nav>
+
+  <div class="container">
+    <div class="comment"><strong>Amir:</strong> Odlična usluga, preporučujem svima!</div>
+    <div class="comment"><strong>Jelena:</strong> Brza instalacija i super kvalitet slike.</div>
+    <div class="comment"><strong>Marko:</strong> Sve radi bez ikakvih problema.</div>
+    <div class="comment"><strong>Ivana:</strong> Ljubazna podrška, pomogli su mi odmah.</div>
+    <div class="comment"><strong>Nemanja:</strong> Najbolja IPTV usluga koju sam koristio.</div>
+    <div class="comment"><strong>Lejla:</strong> Cijene su veoma povoljne, a kvalitet odličan.</div>
+    <div class="comment"><strong>Petar:</strong> Preporučujem, mnogo kanala i bez štekanja.</div>
+    <div class="comment"><strong>Maja:</strong> Djeca uživaju u crtićima, hvala vam!</div>
+    <div class="comment"><strong>Armin:</strong> Radi perfektno i na mobitelu i na TV-u.</div>
+    <div class="comment"><strong>Sanja:</strong> Sve pohvale za podršku i kvalitet.</div>
+    <div class="comment"><strong>Dino:</strong> Bolje od svih drugih IPTV provajdera.</div>
+    <div class="comment"><strong>Selma:</strong> Plaćanje jednostavno, sve je sigurno.</div>
+    <div class="comment"><strong>Vlado:</strong> Gledam i sportske kanale bez ikakvih prekida.</div>
+    <div class="comment"><strong>Elma:</strong> Savršeno za cijelu porodicu.</div>
+    <div class="comment"><strong>Dejan:</strong> Stabilna konekcija, nema zastajkivanja.</div>
+    <div class="comment"><strong>Ana:</strong> Brzo sam dobila pristup nakon plaćanja.</div>
+    <div class="comment"><strong>Adnan:</strong> Odlično iskustvo, nastavljam pretplatu.</div>
+    <div class="comment"><strong>Milica:</strong> Sve pohvale, imate moju preporuku.</div>
+    <div class="comment"><strong>Haris:</strong> Radi i na starijem smart TV-u bez problema.</div>
+    <div class="comment"><strong>Nina:</strong> Najbolja odluka, odlična zabava za cijelu kuću.</div>
+    <div class="comment"><strong>Filip:</strong> Super ponuda i mnogo kanala.</div>
+    <div class="comment"><strong>Kristina:</strong> Veoma sam zadovoljna, sve radi glatko.</div>
+    <div class="comment"><strong>Darko:</strong> Dobar kvalitet slike čak i na sporijem internetu.</div>
+    <div class="comment"><strong>Marina:</strong> Moja preporuka, odličan tim.</div>
+    <div class="comment"><strong>Edin:</strong> Instalacija brza i jednostavna.</div>
+    <div class="comment"><strong>Ivona:</strong> Hvala na ljubaznosti i pomoći.</div>
+    <div class="comment"><strong>Goran:</strong> Veoma povoljno i stabilno.</div>
+    <div class="comment"><strong>Sofija:</strong> Preporučujem svima, odlična usluga.</div>
+    <div class="comment"><strong>Damir:</strong> IPTV bez greške, svaka čast!</div>
+    <div class="comment"><strong>Lidija:</strong> Svi kanali rade savršeno, hvala vam.</div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 UhvatiKanal | WhatsApp: <a href="https://wa.me/491788231430">+49 178 8231430</a></p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mainMenu").classList.toggle("show-menu");
+    }
+  </script>
+</body>
+</html>
