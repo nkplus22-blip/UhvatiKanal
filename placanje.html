@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plaćanje - UhvatiKanal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #c00;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    /* Navigacija */
+    nav { background:#a00; display:flex; justify-content:center; flex-wrap:wrap; }
+    nav a { color:#fff; text-decoration:none; padding:12px 18px; display:block; }
+    nav a:hover { background:#fff; color:#c00; }
+
+    /* Hamburger dugme */
+    .menu-toggle { 
+      display:none; 
+      font-size:28px; 
+      background:none; 
+      border:none; 
+      color:white; 
+      cursor:pointer; 
+      padding:12px 18px; 
+    }
+
+    @media (max-width:768px) {
+      nav { display:none; flex-direction:column; text-align:center; }
+      nav.show { display:flex; }
+      .menu-toggle { display:block; background:#a00; width:100%; text-align:right; }
+    }
+
+    .payment-options {
+      max-width: 800px;
+      margin: 40px auto 20px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .option {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      font-family: "Trebuchet MS", sans-serif;
+      color: #c00;
+      border: 2px solid #c00;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    .option:hover {
+      background: #c00;
+      color: #fff;
+      transform: translateY(-5px);
+    }
+    .guarantee {
+      text-align: center;
+      font-size: 1.1em;
+      margin: 20px auto;
+      max-width: 700px;
+      color: #333;
+      padding: 15px;
+      background: #ffecec;
+      border-left: 5px solid #c00;
+      border-radius: 8px;
+    }
+    .secure {
+      text-align: center;
+      margin: 10px 0 40px 0;
+      font-weight: bold;
+      color: #c00;
+      font-size: 1.2em;
+    }
+    footer {
+      background: #c00;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Načini plaćanja</h1>
+    <p>Odaberite metodu plaćanja i kontaktirajte nas direktno putem WhatsApp-a</p>
+  </header>
+
+  <!-- Hamburger dugme -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="mainMenu">
+    <a href="index.html">🏠 Početna</a>
+    <a href="cjenovnik.html">💰 Cijene i akcije</a>
+    <a href="komentari.html">💬 Komentari</a>
+    <a href="onama.html">ℹ️ O nama</a>
+    <a href="tim.html">👥 Postani dio tima</a>
+    <a href="top30.html">🎬 Top 30</a>
+    <a href="kontakt.html">📞 Kontakt</a>
+    <a href="placanje.html">💳 Plaćanje</a>
+    <a href="kako-da-gledas.html">📺 Kako da gledaš</a>
+  </nav>
+
+  <section class="payment-options">
+    <a href="https://wa.me/491788231430" class="option">💳 PayPal</a>
+    <a href="https://wa.me/491788231430" class="option">💸 Skrill</a>
+    <a href="https://wa.me/491788231430" class="option">🏦 IBAN</a>
+    <a href="https://wa.me/491788231430" class="option">🌍 Western Union</a>
+  </section>
+
+  <div class="guarantee">
+    <p>✅ Za sve što ste platili, u slučaju bilo kakvog nezadovoljstva imate pravo na povrat Vašeg novca u cijelosti.</p>
+  </div>
+
+  <div class="secure">
+    🔒 Sigurno plaćanje
+  </div>
+
+  <footer>
+    <p>&copy; 2025 UhvatiKanal | <a href="index.html">Nazad na početnu</a></p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mainMenu").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
