@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postani dio tima - UhvatiKanal</title>
+  <style>
+    body { margin:0; font-family:Arial,sans-serif; background:#fff5f5; color:#333; }
+    header { background:#c00; color:#fff; padding:25px; text-align:center; }
+
+    /* Navigacija */
+    nav { background:#a00; display:flex; justify-content:center; flex-wrap:wrap; }
+    nav a { color:#fff; text-decoration:none; padding:12px 18px; display:block; }
+    nav a:hover { background:#fff; color:#c00; }
+
+    /* Hamburger dugme */
+    .menu-toggle { 
+      display:none; 
+      font-size:28px; 
+      background:none; 
+      border:none; 
+      color:white; 
+      cursor:pointer; 
+      padding:12px 18px; 
+    }
+    @media (max-width:768px) {
+      nav { display:none; flex-direction:column; text-align:center; }
+      nav.show { display:flex; }
+      .menu-toggle { display:block; background:#a00; width:100%; text-align:right; }
+    }
+
+    .container { max-width:1000px; margin:40px auto; padding:0 20px; }
+    h2 { text-align:center; color:#c00; margin-bottom:20px; }
+    h3 { color:#c00; margin-top:20px; }
+    p { line-height:1.8; font-size:1.1em; text-align:justify; }
+    ul { line-height:1.8; font-size:1.1em; padding-left:20px; }
+    .cta { text-align:center; margin:30px 0; }
+    .cta a { background:#c00; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-size:1.1em; }
+    .cta a:hover { background:#900; }
+    footer { background:#c00; color:#fff; text-align:center; padding:20px; margin-top:40px; }
+    footer a { color:#fff; text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Postani dio našeg tima</h1>
+    <p>Započni saradnju sa nama i ostvari dodatnu zaradu</p>
+  </header>
+
+  <!-- Hamburger dugme -->
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <nav id="mainMenu">
+    <a href="index.html">🏠 Početna</a>
+    <a href="cjenovnik.html">💰 Cijene i akcije</a>
+    <a href="komentari.html">💬 Komentari</a>
+    <a href="onama.html">ℹ️ O nama</a>
+    <a href="tim.html">👥 Postani dio tima</a>
+    <a href="top30.html">🎬 Top 30</a>
+    <a href="kontakt.html">📞 Kontakt</a>
+    <a href="placanje.html">💳 Plaćanje</a>
+    <a href="kako-da-gledas.html">📺 Kako da gledaš</a>
+  </nav>
+
+  <div class="container">
+    <h2>Pridruži se našem timu</h2>
+    <p>
+      Tražimo motivisane i odgovorne ljude koji žele postati dio našeg uspješnog tima.  
+      Ako voliš rad sa ljudima, komunikativan si i spreman za izazove – ovo je prava prilika za tebe!
+    </p>
+
+    <h3>Šta nudimo?</h3>
+    <ul>
+      <li>Rad u dinamičnom i prijateljskom okruženju</li>
+      <li>Mogućnost dodatne zarade</li>
+      <li>Fleksibilno radno vrijeme</li>
+      <li>Obuku i podršku u radu</li>
+    </ul>
+
+    <h3>Šta očekujemo od tebe?</h3>
+    <ul>
+      <li>Da si odgovoran i pouzdan</li>
+      <li>Da imaš osnovne komunikacijske vještine</li>
+      <li>Da si spreman učiti i pratiti naše smjernice</li>
+    </ul>
+
+    <div class="cta">
+      <p>📩 Zainteresovan? Javi nam se i postani dio našeg uspješnog tima!</p>
+      <a href="https://wa.me/491788231430">Pridruži se odmah</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 UhvatiKanal</p>
+    <p>Email: <a href="mailto:nkplus22@gmail.com">nkplus22@gmail.com</a> | WhatsApp: <a href="https://wa.me/491788231430">+49 178 8231430</a></p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("mainMenu").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
