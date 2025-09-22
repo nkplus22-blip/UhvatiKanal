@@ -6,19 +6,120 @@
   <title>UhvatiKanal</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Jezički gumbi */
-    .lang-switch {
+    /* Osnovni stil – crveno/bijela paleta */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #c00;
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #fff;
+      color: #c00;
+    }
+
+    h1, h2, p, a, li {
+      color: #c00;
+    }
+
+    .menu-toggle {
       position: absolute;
-      top: 15px;
-      right: 15px;
-      z-index: 1000;
+      top: 20px;
+      left: 20px;
+      background: none;
+      border: 2px solid #c00;
+      color: #c00;
+      padding: 6px 10px;
+      font-size: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .menu-toggle:hover {
+      background: #c00;
+      color: #fff;
+    }
+
+    /* Overlay meni */
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 0, 0, 0.95);
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+    .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 22px;
+      color: #fff;
+      display: block;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .overlay a:hover {
+      background: #fff;
+      color: #c00;
+    }
+    .overlay .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 40px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .counters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      background: #fff;
+    }
+    .counter-box {
+      text-align: center;
+    }
+    .counter {
+      font-size: 2.5rem;
+      color: #c00;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #fff;
+      border-top: 2px solid #c00;
+    }
+
+    /* Jezički gumbi – sada u footeru */
+    .lang-switch {
+      margin-top: 15px;
     }
     .lang-switch button {
       background: #fff;
       color: #c00;
       border: 2px solid #c00;
       border-radius: 6px;
-      margin-left: 5px;
+      margin: 0 5px;
       padding: 4px 8px;
       cursor: pointer;
       transition: 0.3s;
@@ -27,6 +128,13 @@
     .lang-switch button:hover {
       background: #c00;
       color: #fff;
+    }
+
+    canvas#tech-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
   </style>
 </head>
@@ -38,46 +146,41 @@
   <h1 id="site-title">UhvatiKanal</h1>
   <p id="site-subtitle">Vaša porodica, vaša televizija – najbolji IPTV servis</p>
   <button class="menu-toggle" onclick="openNav()">☰</button>
-
-  <!-- Jezički odabir -->
-  <div class="lang-switch">
-    <button onclick="setLanguage('hr')">HR</button>
-    <button onclick="setLanguage('de')">DE</button>
-  </div>
 </header>
 
+<!-- Hamburger meni sa sekcijama -->
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Početna</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Cijene i akcije</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Top 30</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Komentari</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Postani dio tima</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">O nama</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Kontakt</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Plaćanje</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Kako da gledaš</a>
-  <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">Aplikacije</a>
+  <a href="#home" onclick="closeNav()">Početna</a>
+  <a href="#prices" onclick="closeNav()">Cijene i akcije</a>
+  <a href="#top30" onclick="closeNav()">Top 30</a>
+  <a href="#comments" onclick="closeNav()">Komentari</a>
+  <a href="#team" onclick="closeNav()">Postani dio tima</a>
+  <a href="#about" onclick="closeNav()">O nama</a>
+  <a href="#contact" onclick="closeNav()">Kontakt</a>
+  <a href="#payment" onclick="closeNav()">Plaćanje</a>
+  <a href="#howto" onclick="closeNav()">Kako da gledaš</a>
+  <a href="#apps" onclick="closeNav()">Aplikacije</a>
 </div>
 
-<section class="hero">
+<section id="home" class="hero">
   <h1 id="hero-title">Dobrodošli u UhvatiKanal</h1>
   <p id="hero-text">Već 9 godina pružamo vrhunsku IPTV uslugu bez prekida i trzanja – za Vas i Vašu porodicu.</p>
 </section>
 
-<section class="counters">
+<section id="prices" class="counters">
   <div class="counter-box"><h2 class="counter" data-target="16000">0</h2><p id="counter1">Zadovoljnih korisnika</p></div>
   <div class="counter-box"><h2 class="counter" data-target="9">0</h2><p id="counter2">Godina sa vama</p></div>
   <div class="counter-box"><h2 class="counter" data-target="2100">0</h2><p id="counter3">Live kanala</p></div>
   <div class="counter-box"><h2 class="counter" data-target="75000">0</h2><p id="counter4">Videoteka</p></div>
 </section>
 
-<section class="content">
+<section id="about" class="content">
   <h2 id="why-title">Zašto odabrati UhvatiKanal?</h2>
   <p id="why-text">Naš IPTV servis nudi savršen spoj kvaliteta, stabilnosti i povoljne cijene. Bez ikakvih prekida i nepotrebnog opterećenja, uz servere i streamove najvišeg kvaliteta. Vaše zadovoljstvo nam je uvijek na prvom mjestu!</p>
 </section>
 
-<section class="content">
+<section id="howto" class="content">
   <h2 id="iptv-title">Šta je Internet televizija (IPTV)?</h2>
   <ul id="iptv-list">
     <li>Više hiljada TV kanala iz cijelog svijeta</li>
@@ -89,9 +192,14 @@
 </section>
 
 <footer>
-  <p id="footer-text">&copy; 2025 UhvatiKanal | Kontakt: 
+  <p id="footer-text">&copy; 2025 UhvatiKanal | Kontakt:
     <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">WhatsApp</a>
   </p>
+
+  <div class="lang-switch">
+    <button onclick="setLanguage('hr')">HR</button>
+    <button onclick="setLanguage('de')">DE</button>
+  </div>
 </footer>
 
 <script>
