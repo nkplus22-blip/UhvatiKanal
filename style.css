@@ -1,47 +1,24 @@
-/* Reset i osnovni stil */
-* {
+/* ===== Globalni stilovi – crveno/bijela paleta ===== */
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
   font-family: Arial, sans-serif;
-  background: #fff;
-  color: #c00;                 /* glavna crvena */
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  background: #fff url("img/tech-pattern.svg") repeat center center;
+  background-size: cover;
+  color: #c00;
 }
 
-/* Canvas background */
-#tech-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-}
-
-/* ===== HEADER ===== */
 header {
   position: relative;
   text-align: center;
   padding: 2rem 1rem;
-  background: #fff;
+  background: rgba(255,255,255,0.9);
+  color: #c00;
 }
 
-header h1 {
-  font-size: 2.4rem;
-  margin-bottom: .5rem;
+h1, h2, p, a, li {
+  color: #c00;
 }
 
-header p {
-  font-size: 1.1rem;
-}
-
-/* Hamburger dugme */
 .menu-toggle {
   position: absolute;
   top: 20px;
@@ -60,27 +37,26 @@ header p {
   color: #fff;
 }
 
-/* ===== OVERLAY MENU ===== */
+/* Overlay meni */
 .overlay {
   height: 100%;
   width: 0;
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
-  z-index: 999;
-  background-color: rgba(204,0,0,0.95);
+  background-color: rgba(255, 0, 0, 0.95);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
 }
 .overlay a {
-  display: block;
-  padding: 12px;
+  padding: 8px;
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 22px;
   color: #fff;
-  text-align: center;
+  display: block;
   transition: 0.3s;
+  text-align: center;
 }
 .overlay a:hover {
   background: #fff;
@@ -91,124 +67,34 @@ header p {
   top: 20px;
   right: 35px;
   font-size: 40px;
-  color: #fff;
-  cursor: pointer;
 }
 
-/* ===== HERO SEKCIJA ===== */
-.hero {
-  text-align: center;
-  padding: 4rem 1rem;
-}
-.hero h1 {
-  font-size: 2.6rem;
-  margin-bottom: 1rem;
-}
-.hero p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* ===== BROJAČI ===== */
-.counters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 3rem 1rem;
-  background: #fff;
-}
-.counter-box {
-  text-align: center;
-  border: 2px solid #c00;
-  border-radius: 12px;
-  padding: 20px;
-  width: 180px;
-  background: #fff;
-  transition: transform 0.3s;
-}
-.counter-box:hover { transform: translateY(-6px); }
-.counter {
-  font-size: 2.5rem;
-  color: #c00;
-}
-.counter-box p {
-  margin-top: .5rem;
-  font-weight: bold;
-}
-
-/* ===== SADRŽAJ ===== */
-.content {
+.hero, .content {
   max-width: 900px;
-  margin: 2.5rem auto;
+  margin: 2rem auto;
   padding: 0 1rem;
   text-align: center;
 }
-.content h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.content p,
-.content li {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #c00;
-}
-.content ul {
-  list-style: none;
-  margin-top: 1rem;
-  text-align: left;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.content ul li::before {
-  content: "✔ ";
-  color: #c00;
-  font-weight: bold;
-}
 
-/* ===== FOOTER ===== */
 footer {
   text-align: center;
   padding: 1.5rem;
+  background: rgba(255,255,255,0.9);
   border-top: 2px solid #c00;
-  background: #fff;
-  color: #c00;
 }
-footer a {
-  color: #c00;
-  font-weight: bold;
-  text-decoration: none;
-}
-footer a:hover { text-decoration: underline; }
 
-/* Jezički gumbi */
-.lang-switch {
-  margin-top: 15px;
-}
 .lang-switch button {
   background: #fff;
   color: #c00;
   border: 2px solid #c00;
   border-radius: 6px;
   margin: 0 5px;
-  padding: 4px 10px;
+  padding: 4px 8px;
   cursor: pointer;
-  font-weight: bold;
   transition: 0.3s;
+  font-weight: bold;
 }
 .lang-switch button:hover {
   background: #c00;
   color: #fff;
-}
-
-/* ===== RESPONSIVE ===== */
-@media screen and (max-width: 768px) {
-  .counters { flex-direction: column; align-items: center; }
-  .counter-box { width: 70%; }
-  header h1 { font-size: 2rem; }
-  .hero h1 { font-size: 2.2rem; }
 }
