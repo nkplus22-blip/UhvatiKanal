@@ -2,82 +2,154 @@
 <html lang="hr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="UhvatiKanal – Vaša porodica, vaša televizija. Vrhunski IPTV servis bez prekida i trzanja." />
-  <title>UhvatiKanal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UhvatiKanal – IPTV Servis</title>
+  <meta name="description" content="UhvatiKanal – Vaša porodica, vaša televizija. Vrhunski IPTV servis bez prekida i trzanja.">
 
-  <!-- Vanjski stil (crveno/bijela paleta) -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ===== Global ===== */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b url("https://www.transparenttextures.com/patterns/circuit-board.png") repeat;
+      color: #c00;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: relative;
+      text-align: center;
+      padding: 2rem 1rem;
+      background: rgba(255,255,255,0.9);
+    }
+    h1,h2,p,a,li { color:#c00; }
+
+    /* ===== Hamburger meni ===== */
+    .menu-toggle {
+      position: absolute;
+      top: 20px; left: 20px;
+      background: none;
+      border: 2px solid #c00;
+      color: #c00;
+      padding: 6px 10px;
+      font-size: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .menu-toggle:hover { background:#c00; color:#fff; }
+
+    .overlay {
+      height: 100%; width: 0;
+      position: fixed; z-index: 999;
+      top: 0; left: 0;
+      background-color: rgba(0,0,0,0.95);
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+    .overlay a {
+      padding: 8px; display:block;
+      text-decoration: none;
+      font-size: 22px; color: #fff;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .overlay a:hover { background:#fff; color:#c00; }
+    .overlay .closebtn {
+      position: absolute; top: 20px; right: 35px;
+      font-size: 40px;
+    }
+
+    /* ===== Sekcije ===== */
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+      background: rgba(255,255,255,0.9);
+      margin-bottom: 2rem;
+      border-radius: 12px;
+    }
+    .hero { text-align:center; }
+
+    footer {
+      text-align:center;
+      padding:1.5rem;
+      background:rgba(255,255,255,0.9);
+      border-top:2px solid #c00;
+    }
+
+    /* Canvas za čestice */
+    canvas#tech-bg {
+      position: fixed;
+      top: 0; left: 0;
+      z-index: -1;
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Pozadinska animacija -->
-  <canvas id="tech-bg"></canvas>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <button class="menu-toggle" onclick="openNav()">☰</button>
-    <h1 id="site-title">UhvatiKanal</h1>
-    <p id="site-subtitle">Vaša porodica, vaša televizija – najbolji IPTV servis</p>
-  </header>
+<canvas id="tech-bg"></canvas>
 
-  <!-- ===== OVERLAY NAV ===== -->
-  <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="#home" onclick="closeNav()">Početna</a>
-    <a href="#prices" onclick="closeNav()">Cijene i akcije</a>
-    <a href="#top30" onclick="closeNav()">Top 30</a>
-    <a href="#comments" onclick="closeNav()">Komentari</a>
-    <a href="#team" onclick="closeNav()">Postani dio tima</a>
-    <a href="#about" onclick="closeNav()">O nama</a>
-    <a href="#contact" onclick="closeNav()">Kontakt</a>
-    <a href="#payment" onclick="closeNav()">Plaćanje</a>
-    <a href="#howto" onclick="closeNav()">Kako da gledaš</a>
-    <a href="#apps" onclick="closeNav()">Aplikacije</a>
-  </div>
+<header>
+  <button class="menu-toggle" onclick="openNav()">☰</button>
+  <h1>UhvatiKanal</h1>
+  <p>Vaša porodica, vaša televizija – najbolji IPTV servis</p>
+</header>
 
-  <!-- ===== HERO ===== -->
+<!-- Overlay meni -->
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#home"     onclick="closeNav()">Početna</a>
+  <a href="#top30"    onclick="closeNav()">Top 30</a>
+  <a href="#comments" onclick="closeNav()">Komentari</a>
+  <a href="#team"     onclick="closeNav()">Postani dio tima</a>
+  <a href="#about"    onclick="closeNav()">O nama</a>
+  <a href="#contact"  onclick="closeNav()">Kontakt</a>
+  <a href="#payment"  onclick="closeNav()">Plaćanje</a>
+  <a href="#howto"    onclick="closeNav()">Kako da gledaš</a>
+  <a href="#apps"     onclick="closeNav()">Aplikacije</a>
+</div>
+
+<main>
   <section id="home" class="hero">
-    <h1 id="hero-title">Dobrodošli u UhvatiKanal</h1>
-    <p id="hero-text">
-      Već 9 godina pružamo vrhunsku IPTV uslugu bez prekida i trzanja – za Vas i Vašu porodicu.
+    <h2>Dobrodošli u UhvatiKanal</h2>
+    <p>Već 9 godina pružamo vrhunsku IPTV uslugu bez prekida i trzanja – za Vas i Vašu porodicu.</p>
+  </section>
+
+  <section id="top30">
+    <h2>Top 30 kanala</h2>
+    <p>Lista najgledanijih kanala dostupna našim korisnicima.</p>
+  </section>
+
+  <section id="comments">
+    <h2>Komentari korisnika</h2>
+    <p>Ovdje će biti recenzije i iskustva naših pretplatnika.</p>
+  </section>
+
+  <section id="team">
+    <h2>Postani dio tima</h2>
+    <p>Pridruži se našem rastućem timu partnera i promotora.</p>
+  </section>
+
+  <section id="about">
+    <h2>O nama</h2>
+    <p>Naš IPTV servis nudi savršen spoj kvaliteta, stabilnosti i povoljne cijene...</p>
+  </section>
+
+  <section id="contact">
+    <h2>Kontakt</h2>
+    <p>Za sva pitanja javite nam se na 
+       <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">WhatsApp</a>.
     </p>
   </section>
 
-  <!-- ===== BROJAČI ===== -->
-  <section id="prices" class="counters">
-    <div class="counter-box">
-      <h2 class="counter" data-target="16000">0</h2>
-      <p id="counter1">Zadovoljnih korisnika</p>
-    </div>
-    <div class="counter-box">
-      <h2 class="counter" data-target="9">0</h2>
-      <p id="counter2">Godina sa vama</p>
-    </div>
-    <div class="counter-box">
-      <h2 class="counter" data-target="2100">0</h2>
-      <p id="counter3">Live kanala</p>
-    </div>
-    <div class="counter-box">
-      <h2 class="counter" data-target="75000">0</h2>
-      <p id="counter4">Videoteka</p>
-    </div>
+  <section id="payment">
+    <h2>Plaćanje</h2>
+    <p>Detalji o paketima i uputstva za plaćanje.</p>
   </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="content">
-    <h2 id="why-title">Zašto odabrati UhvatiKanal?</h2>
-    <p id="why-text">
-      Naš IPTV servis nudi savršen spoj kvaliteta, stabilnosti i povoljne cijene. Bez ikakvih prekida
-      i nepotrebnog opterećenja, uz servere i streamove najvišeg kvaliteta. Vaše zadovoljstvo nam je
-      uvijek na prvom mjestu!
-    </p>
-  </section>
-
-  <!-- ===== IPTV INFO ===== -->
-  <section id="howto" class="content">
-    <h2 id="iptv-title">Šta je Internet televizija (IPTV)?</h2>
-    <ul id="iptv-list">
+  <section id="howto">
+    <h2>Kako da gledaš</h2>
+    <ul>
       <li>Više hiljada TV kanala iz cijelog svijeta</li>
       <li>Velika videoteka sa filmovima i serijama na zahtjev</li>
       <li>Gledanje na Smart TV-u, mobitelu, tabletu, računaru ili TV box uređajima</li>
@@ -86,147 +158,67 @@
     </ul>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p id="footer-text">
-      &copy; 2025 UhvatiKanal | Kontakt:
-      <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">
-        WhatsApp
-      </a>
-    </p>
+  <section id="apps">
+    <h2>Aplikacije</h2>
+    <p>Preporučene aplikacije za Android, iOS i Smart TV uređaje.</p>
+  </section>
+</main>
 
-    <div class="lang-switch">
-      <button onclick="setLanguage('hr')">HR</button>
-      <button onclick="setLanguage('de')">DE</button>
-    </div>
-  </footer>
+<footer>
+  <p>&copy; 2025 UhvatiKanal | Kontakt:
+    <a href="https://wa.me/491788231430?text=Pozdrav%2C%20dolazim%20sa%20sajta%20UhvatiKanal">WhatsApp</a>
+  </p>
+</footer>
 
-  <!-- ===== SCRIPTS ===== -->
-  <script>
-    /* Otvaranje / zatvaranje overlay menija */
-    function openNav() { document.getElementById("myNav").style.width = "100%"; }
-    function closeNav() { document.getElementById("myNav").style.width = "0%"; }
+<script>
+  /* Otvori/zatvori meni */
+  function openNav(){ document.getElementById("myNav").style.width="100%"; }
+  function closeNav(){ document.getElementById("myNav").style.width="0%"; }
 
-    /* Brojači */
-    const counters = document.querySelectorAll(".counter");
-    counters.forEach(counter => {
-      counter.innerText = "0";
-      const update = () => {
-        const target = +counter.getAttribute("data-target");
-        const current = +counter.innerText.replace(/\D/g, "");
-        const increment = target / 200;
-        if (current < target) {
-          counter.innerText = Math.ceil(current + increment).toLocaleString();
-          setTimeout(update, 20);
-        } else {
-          counter.innerText = target >= 1000 ? target.toLocaleString() + "+" : target + "+";
-        }
-      };
-      update();
+  /* Animirane čestice */
+  const canvas=document.getElementById('tech-bg');
+  const ctx=canvas.getContext('2d');
+  let width=canvas.width=window.innerWidth;
+  let height=canvas.height=window.innerHeight;
+  window.addEventListener('resize',()=>{width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;});
+
+  const particles=[];
+  for(let i=0;i<80;i++){
+    particles.push({
+      x:Math.random()*width,
+      y:Math.random()*height,
+      size:Math.random()*2+1,
+      sx:Math.random()*1-0.5,
+      sy:Math.random()*1-0.5
     });
-
-    /* Canvas animacija pozadine */
-    const canvas = document.getElementById("tech-bg");
-    const ctx = canvas.getContext("2d");
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-    window.addEventListener("resize", () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+  }
+  function animate(){
+    ctx.clearRect(0,0,width,height);
+    particles.forEach(p=>{
+      p.x+=p.sx; p.y+=p.sy;
+      if(p.x>width) p.x=0; if(p.x<0) p.x=width;
+      if(p.y>height) p.y=0; if(p.y<0) p.y=height;
+      ctx.fillStyle='rgba(255,0,0,0.7)';
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill();
     });
-    const particles = Array.from({ length: 80 }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      size: Math.random() * 2 + 1,
-      speedX: Math.random() * 1 - 0.5,
-      speedY: Math.random() * 1 - 0.5
-    }));
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      particles.forEach(p => {
-        p.x += p.speedX; p.y += p.speedY;
-        if (p.x > width) p.x = 0; if (p.x < 0) p.x = width;
-        if (p.y > height) p.y = 0; if (p.y < 0) p.y = height;
-        ctx.fillStyle = "rgba(255,0,0,0.7)";
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
-      });
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 100) {
-            ctx.strokeStyle = "rgba(255,0,0,0.1)";
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
+    for(let i=0;i<particles.length;i++){
+      for(let j=i+1;j<particles.length;j++){
+        const dx=particles[i].x-particles[j].x;
+        const dy=particles[i].y-particles[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<100){
+          ctx.strokeStyle='rgba(255,0,0,0.1)';
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x,particles[i].y);
+          ctx.lineTo(particles[j].x,particles[j].y);
+          ctx.stroke();
         }
       }
-      requestAnimationFrame(animate);
     }
-    animate();
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
 
-    /* Dvojezični sadržaj */
-    const translations = {
-      hr: {
-        siteSubtitle: "Vaša porodica, vaša televizija – najbolji IPTV servis",
-        heroTitle: "Dobrodošli u UhvatiKanal",
-        heroText: "Već 9 godina pružamo vrhunsku IPTV uslugu bez prekida i trzanja – za Vas i Vašu porodicu.",
-        whyTitle: "Zašto odabrati UhvatiKanal?",
-        whyText: "Naš IPTV servis nudi savršen spoj kvaliteta, stabilnosti i povoljne cijene. Bez ikakvih prekida i nepotrebnog opterećenja, uz servere i streamove najvišeg kvaliteta. Vaše zadovoljstvo nam je uvijek na prvom mjestu!",
-        iptvTitle: "Šta je Internet televizija (IPTV)?",
-        iptvList: [
-          "Više hiljada TV kanala iz cijelog svijeta",
-          "Velika videoteka sa filmovima i serijama na zahtjev",
-          "Gledanje na Smart TV-u, mobitelu, tabletu, računaru ili TV box uređajima",
-          "Bez dodatnih antena, kablova ili komplikovanih instalacija",
-          "Povoljnija cijena u poređenju sa klasičnim operaterima"
-        ],
-        counters: ["Zadovoljnih korisnika", "Godina sa vama", "Live kanala", "Videoteka"],
-        footer: "&copy; 2025 UhvatiKanal | Kontakt: <a href='https://wa.me/491788231430'>WhatsApp</a>"
-      },
-      de: {
-        siteSubtitle: "Ihre Familie, Ihr Fernsehen – der beste IPTV-Dienst",
-        heroTitle: "Willkommen bei UhvatiKanal",
-        heroText: "Seit 9 Jahren bieten wir erstklassigen IPTV-Service ohne Unterbrechungen – für Sie und Ihre Familie.",
-        whyTitle: "Warum UhvatiKanal wählen?",
-        whyText: "Unser IPTV-Service bietet die perfekte Kombination aus Qualität, Stabilität und günstigem Preis. Ohne Unterbrechungen, mit den besten Servern und Streams. Ihre Zufriedenheit steht für uns an erster Stelle!",
-        iptvTitle: "Was ist Internetfernsehen (IPTV)?",
-        iptvList: [
-          "Tausende TV-Kanäle aus der ganzen Welt",
-          "Große Videothek mit Filmen und Serien auf Abruf",
-          "Sehen auf Smart-TV, Handy, Tablet, PC oder TV-Box",
-          "Keine zusätzlichen Antennen, Kabel oder komplizierte Installationen",
-          "Günstiger als klassische Anbieter"
-        ],
-        counters: ["Zufriedene Nutzer", "Jahre mit Ihnen", "Live-Kanäle", "Videothek"],
-        footer: "&copy; 2025 UhvatiKanal | Kontakt: <a href='https://wa.me/491788231430'>WhatsApp</a>"
-      }
-    };
-
-    function setLanguage(lang) {
-      document.getElementById("site-subtitle").textContent = translations[lang].siteSubtitle;
-      document.getElementById("hero-title").textContent = translations[lang].heroTitle;
-      document.getElementById("hero-text").textContent = translations[lang].heroText;
-      document.getElementById("why-title").textContent = translations[lang].whyTitle;
-      document.getElementById("why-text").textContent = translations[lang].whyText;
-      document.getElementById("iptv-title").textContent = translations[lang].iptvTitle;
-      const iptvList = document.getElementById("iptv-list");
-      iptvList.innerHTML = "";
-      translations[lang].iptvList.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        iptvList.appendChild(li);
-      });
-      document.getElementById("counter1").textContent = translations[lang].counters[0];
-      document.getElementById("counter2").textContent = translations[lang].counters[1];
-      document.getElementById("counter3").textContent = translations[lang].counters[2];
-      document.getElementById("counter4").textContent = translations[lang].counters[3];
-      document.getElementById("footer-text").innerHTML = translations[lang].footer;
-    }
-  </script>
 </body>
 </html>
