@@ -1,20 +1,19 @@
-/* Reset i osnovni stilovi */
+/* Reset i osnovni stil */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+html, body {
   font-family: Arial, sans-serif;
-  color: #fff;
-  background: #001f3f;
+  background: #fff;
+  color: #c00;                 /* glavna crvena */
   overflow-x: hidden;
-  overflow-y: auto;
-  position: relative;
+  scroll-behavior: smooth;
 }
 
-/* Canvas / tech background */
+/* Canvas background */
 #tech-bg {
   position: fixed;
   top: 0;
@@ -22,224 +21,194 @@ body {
   z-index: -1;
   width: 100%;
   height: 100%;
-  background: #001f3f;
+  background: #fff;
 }
 
-/* Header */
+/* ===== HEADER ===== */
 header {
-  background: rgba(0, 64, 128, 0.9);
-  color: #fff;
-  padding: 20px;
-  text-align: center;
   position: relative;
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #fff;
 }
 
-header h1 { font-size: 2.2em; margin-bottom: 5px; }
-header p { font-size: 1.1em; }
+header h1 {
+  font-size: 2.4rem;
+  margin-bottom: .5rem;
+}
 
-/* Hamburger meni dugme */
+header p {
+  font-size: 1.1rem;
+}
+
+/* Hamburger dugme */
 .menu-toggle {
   position: absolute;
   top: 20px;
-  right: 20px;
-  font-size: 28px;
-  cursor: pointer;
+  left: 20px;
   background: none;
-  border: none;
+  border: 2px solid #c00;
+  color: #c00;
+  padding: 6px 10px;
+  font-size: 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.menu-toggle:hover {
+  background: #c00;
   color: #fff;
 }
 
-/* Overlay meni */
+/* ===== OVERLAY MENU ===== */
 .overlay {
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1000;
   top: 0;
   left: 0;
-  background-color: rgba(0, 64, 128, 0.95);
+  z-index: 999;
+  background-color: rgba(204,0,0,0.95);
   overflow-x: hidden;
-  transition: 0.4s;
+  transition: 0.5s;
   padding-top: 60px;
 }
-
 .overlay a {
   display: block;
+  padding: 12px;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.4rem;
   color: #fff;
-  padding: 15px;
   text-align: center;
   transition: 0.3s;
 }
-
-.overlay a:hover { background: #0066cc; }
-
+.overlay a:hover {
+  background: #fff;
+  color: #c00;
+}
 .overlay .closebtn {
   position: absolute;
-  top: 15px;
-  right: 30px;
+  top: 20px;
+  right: 35px;
   font-size: 40px;
   color: #fff;
   cursor: pointer;
 }
 
-/* Nav meni za druge stranice */
-nav {
-  background:#007bff;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-nav a {
-  color:#fff;
-  text-decoration:none;
-  padding:12px 18px;
-  display:block;
-}
-nav a:hover { background:#e6f0ff; color:#0056a6; }
-
-/* Responsive hamburger meni */
-@media (max-width:768px) {
-  nav { display:none; flex-direction:column; text-align:center; }
-  nav.show { display:flex; }
-  .menu-toggle { display:block; background:#007bff; width:100%; text-align:right; }
-}
-
-/* Hero sekcija */
+/* ===== HERO SEKCIJA ===== */
 .hero {
-  position: relative;
-  color: #fff;
   text-align: center;
-  padding: 80px 20px;
-  z-index: 1;
+  padding: 4rem 1rem;
+}
+.hero h1 {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-.hero h1 { font-size: 2.5em; margin: 0; }
-.hero p { font-size: 1.2em; margin-top: 15px; }
-
-/* Brojači */
+/* ===== BROJAČI ===== */
 .counters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  margin: 40px 0;
-  position: relative;
-  z-index: 1;
+  gap: 2rem;
+  padding: 3rem 1rem;
+  background: #fff;
 }
-
 .counter-box {
   text-align: center;
-  background: #fff;
-  color: #004080;
-  padding: 20px;
+  border: 2px solid #c00;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  padding: 20px;
   width: 180px;
+  background: #fff;
+  transition: transform 0.3s;
+}
+.counter-box:hover { transform: translateY(-6px); }
+.counter {
+  font-size: 2.5rem;
+  color: #c00;
+}
+.counter-box p {
+  margin-top: .5rem;
+  font-weight: bold;
 }
 
-.counter-box h2 {
-  color: #004080;
-  font-size: 2em;
-  margin: 0;
-}
-
-/* Content sekcije */
+/* ===== SADRŽAJ ===== */
 .content {
   max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
   text-align: center;
-  position: relative;
-  z-index: 1;
 }
-
 .content h2 {
-  font-size: 1.8em;
-  color: #fff;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
-
-.content p, .content li {
-  font-size: 1.1em;
-  line-height: 1.6;
+.content p,
+.content li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #c00;
 }
-
 .content ul {
+  list-style: none;
+  margin-top: 1rem;
   text-align: left;
   max-width: 700px;
-  margin: 20px auto;
-  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
 }
-
 .content ul li::before {
   content: "✔ ";
-  color: #ffcc00;
+  color: #c00;
+  font-weight: bold;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
-  background: rgba(0,64,128,0.9);
-  color: #fff;
   text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-  position: relative;
-  z-index: 1;
+  padding: 1.5rem;
+  border-top: 2px solid #c00;
+  background: #fff;
+  color: #c00;
+}
+footer a {
+  color: #c00;
+  font-weight: bold;
+  text-decoration: none;
+}
+footer a:hover { text-decoration: underline; }
+
+/* Jezički gumbi */
+.lang-switch {
+  margin-top: 15px;
+}
+.lang-switch button {
+  background: #fff;
+  color: #c00;
+  border: 2px solid #c00;
+  border-radius: 6px;
+  margin: 0 5px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.lang-switch button:hover {
+  background: #c00;
+  color: #fff;
 }
 
-footer a { color: #ffcc00; text-decoration: none; }
-
-/* Kartice / aplikacije / uređaji */
-.container-apps, .payment-options, .grid {
-  max-width:1100px;
-  margin:40px auto;
-  padding:0 20px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
-  gap:20px;
-}
-
-.card, .option {
-  background:#fff;
-  color:#004080;
-  border:2px solid #007bff;
-  border-radius:10px;
-  padding:20px;
-  text-align:center;
-  font-weight:bold;
-  transition:.3s;
-  text-decoration:none;
-}
-
-.card:hover, .option:hover { transform:translateY(-5px); background:#004080; color:#fff; }
-
-/* Istaknuto polje / CTA */
-.highlight {
-  background:#007bff;
-  color:#fff;
-  border-radius:10px;
-  padding:30px 20px;
-  text-align:center;
-  margin:40px 0;
-}
-
-.highlight a.btn {
-  display:inline-block;
-  margin-top:15px;
-  padding:12px 20px;
-  background:#ffcc00;
-  color:#0056a6;
-  text-decoration:none;
-  border-radius:6px;
-  font-weight:bold;
-}
-
-.highlight a.btn:hover { background:#e6b800; }
-
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media screen and (max-width: 768px) {
   .counters { flex-direction: column; align-items: center; }
-  .counter-box { width: 60%; }
+  .counter-box { width: 70%; }
+  header h1 { font-size: 2rem; }
+  .hero h1 { font-size: 2.2rem; }
 }
